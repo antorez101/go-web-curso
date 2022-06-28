@@ -21,6 +21,7 @@ func Manejadores() {
 	router.HandleFunc("/updatePerfil", middelwares.CheckDataBase(middelwares.ValidaJWT(routes.UpdatingPerfil))).Methods("PUT")
 	router.HandleFunc("/insertTweet", middelwares.CheckDataBase(middelwares.ValidaJWT(routes.InsertarTweet))).Methods("POST")
 	router.HandleFunc("/getTweets", middelwares.CheckDataBase(middelwares.ValidaJWT(routes.GetTweets))).Methods("GET")
+	router.HandleFunc("/delete", middelwares.CheckDataBase(middelwares.ValidaJWT(routes.DeleteTweet))).Methods("DELETE")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
